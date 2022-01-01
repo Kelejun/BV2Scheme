@@ -23,7 +23,11 @@ def decode_json(r):
 
 def main():
     bv = input('请输入BV号:')
-    print('对应 Scheme URI 为： bilibili://video/' + bv2av(bv))
+    av = bv2av(bv)
+    if av == '获取失败':
+        print('无法转换，因为无法获取视频 av 号，请检查 BV 号是否正确、网络连接是否正常')
+    else:
+        print('对应 Scheme URI 为： bilibili://video/' + av)
     input('按Enter退出')
 
 if __name__ == '__main__':
